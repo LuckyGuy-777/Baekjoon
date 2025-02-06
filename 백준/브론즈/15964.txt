@@ -1,0 +1,34 @@
+package basic;
+
+import java.io.IOException;
+import java.util.Scanner;
+
+
+public class Main {
+	
+	public static void aaa(long a,long b,long op) {
+		if(op == '@') {
+			System.out.println((a+b)*(a-b));
+		}
+	}
+	
+    public static void main(String[] args) throws IOException {
+    
+//int 로 해서 30점맞음. 
+    	// 정수 A,B가 주어지고, @로 연산하면, A@B를 계산하는 프로그램/ 15964
+    	// A,B는 1000보다 작거나 같다.
+    	// A@B = (A+B)×(A-B) 
+    	// long으로 풀어여 정답판정
+    	Scanner sc = new Scanner(System.in);
+    	
+    	//정수 A B 
+    	long A = sc.nextLong();
+    	long B = sc.nextLong();
+    	
+    	char op = '@';
+    	
+    	aaa(A,B,op);
+    	
+    	
+    }
+}

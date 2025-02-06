@@ -1,0 +1,49 @@
+package basic;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+// 백준 2475 내실력으로 맞힘.
+// 고유번호 : 00000 ~ 99999 수 중 하나.    	
+// 검증수 : 처음 5자리에 들어가는 5개의 숫자를 각각 제곱한 수의 합을 10으로 나눈 나머지
+    	
+    	// 0. 입력스트림
+    	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    	
+    	//0. 첫쨰줄에 고유번호의 처음 5자리숫자들이 빈칸을 사이에두고 하나씩주어짐.
+    	// stringtokenizer
+    	StringTokenizer st = new StringTokenizer(br.readLine()," ");
+    	
+    	
+    	// 1. 검증수 입력. 배열에 입력받는식. for문 사용해서, 고유번호 입력받기?
+    	
+    	int[] goyu = new int[5];
+    	long gum = 0;
+    	
+    	// 고유번호입력.
+    	for(int i = 0; i<goyu.length; i++) {
+    		goyu[i] = Integer.parseInt(st.nextToken());
+    	}
+    	
+    	
+    	
+    	long temp = 0;
+    	// 2. 검증수 계산
+    	// 배열 i번째 요소(for)를 제곱한 수의 합, 나누기 10을 한, 나머지
+    	for(int i = 0; i<goyu.length; i++) {
+    		
+    		temp += (int)Math.pow(goyu[i], 2);
+    		
+    		gum = temp % 10;
+    	}
+    	
+    	System.out.println(gum);
+    	
+    	
+    }
+}

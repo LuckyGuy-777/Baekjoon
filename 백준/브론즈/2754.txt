@@ -1,0 +1,99 @@
+package basic;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+
+//    	어떤 사람의 C언어 성적이 주어졌을 때,
+//    	평점은 몇 점인지 출력하는 프로그램을 작성하시오. 내가쓴답.
+//    	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//    	
+//    	String score = br.readLine();
+//    	
+//    	if(score.equals("A+") ) {
+//    		System.out.println(4.3);
+//    	}
+//    	else if(score.equals("A0")) {
+//    		System.out.println(4.0);
+//    	}
+//    	else if(score.equals("A-")) {
+//    		System.out.println(3.7);
+//    	}
+//    	else if(score.equals("B+")) {
+//    		System.out.println(3.3);
+//    	}
+//    	else if(score.equals("B0")) {
+//    		System.out.println(3.0);
+//    	}
+//    	else if(score.equals("B-")) {
+//    		System.out.println(2.7);
+//    	}
+//    	else if(score.equals("C+")) {
+//    		System.out.println(2.3);
+//    	}
+//    	else if(score.equals("C0")) {
+//    		System.out.println(2.0);
+//    	}
+//    	else if(score.equals("C-")) {
+//    		System.out.println(1.7);
+//    	}
+//    	else if(score.equals("D+")) {
+//    		System.out.println(1.3);
+//    	}
+//    	else if(score.equals("D0")) {
+//    		System.out.println(1.0);
+//    	}
+//    	else if(score.equals("D-")) {
+//    		System.out.println(0.7);
+//    	}
+//    	else if(score.equals("F")) {
+//    		System.out.println(0.0);
+//    		
+//    	}
+    	
+	
+//    	다른사람의 답
+// 	+ 일때는 0.3 , -일때는 -0.3 , 0일떄는 .0 이라는 규칙
+    	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    	
+    	String s = br.readLine();
+    	
+    	double grade = 0; // 학점
+    	
+    	char c = s.charAt(0); // 문자 확인용
+    	
+//    	첫번쨰 문자를 확인하고 점수매김.
+    	if(c == 'A') {
+    		grade = 4;
+    	}
+    	else if(c == 'B') {
+    		grade = 3;
+    	}
+    	else if(c == 'C') {
+    		grade = 2;
+    	}
+    	else if(c == 'D') {
+    		grade = 1;
+    	}else {
+    		System.out.println("0.0");
+    		return;
+    	}
+    	
+    	// 두번쨰 문자가 존재할경우만 처리.
+    	if(s.length() > 1) {
+    		c = s.charAt(1);
+        	// 부호를 확인하고, 연산 
+        	if(c=='+') {
+        		grade += 0.3;
+        	}else if(c == '-') {
+        		grade -= 0.3;
+        	}
+        	
+    	}
+    	
+    System.out.println(grade);    
+    }
+}

@@ -1,0 +1,68 @@
+package basic; 
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+    	//입력받은대로 출력하는 프로그램. 11718. 방식1
+    	
+    	// 입력 주어짐(최대 100줄)&(알파벳 대-소문자,공백,숫자로 이루어짐.)
+    	// 각줄 =< 100글자, 빈줄x, 각줄은 공백으로 시작하지않고,끝나지도 않음.
+    	
+    	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    	BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+    	
+    	
+    	String str;
+    	
+    	//입력이 없을떄까지 반복실행.
+    	while((str=br.readLine())!=null) {
+    		bw.write(str);
+    		bw.write("\n");
+    		bw.flush();
+    	}
+    	br.close();
+    	bw.close();
+    }
+}
+
+--------
+
+
+package basic;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+    	//입력받은대로 출력하는 프로그램. 11718 방식2
+    	
+    	// 입력 주어짐(최대 100줄)&(알파벳 대-소문자,공백,숫자로 이루어짐.)
+    	// 각줄 =< 100글자, 빈줄x, 각줄은 공백으로 시작하지않고,끝나지도 않음.
+    	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    	BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+    	StringBuilder sb = new StringBuilder();
+    	String str;
+    	
+    	//버퍼리더에, 더이상 입력값이 존재하지 않을떄까지 반복.
+    	// 컨 + z 키로 반복문 탈출. 그다음 답 이 나옴
+    	while((str = br.readLine())!=null) {
+    		sb.append(str).append('\n'); // 스트링빌더로 문자를 입력하고, 개행도 해줌.
+    	}
+    	System.out.print(sb);
+    	
+    	br.close();
+    	bw.flush();// bw에 있는 문자열 배출.
+    	bw.close();
+    	
+    	
+    }
+}

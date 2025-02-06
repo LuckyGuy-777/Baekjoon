@@ -1,0 +1,89 @@
+package basic;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.sql.Time;
+import java.time.LocalTime;
+import java.util.StringTokenizer;
+
+
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+//2884번. 45분 일찍 알람설정하기. 내가낸답. 결과: 틀렸습니다
+// 알람시각이 주어졌을때, -45분 해주기
+    	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    	BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+    	
+    	// 입력할떄, 띄우기를 사이에 준다.
+    	StringTokenizer st = new StringTokenizer(br.readLine()," ");
+    	//(정수타입)시간과 분
+    	int H = Integer.parseInt(st.nextToken());
+    	int M = Integer.parseInt(st.nextToken());
+    	
+    	br.close();
+    	LocalTime time1 = LocalTime.of(H, M);
+    	
+    	
+    	
+    	
+    	bw.write(String.valueOf(time1.minusMinutes(45)));
+    	
+    	bw.flush();
+    	
+    	bw.close();
+    	
+    }
+}
+
+
+------------------------------------------------------
+
+//다른사람이 낸 답.
+
+package basic;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.sql.Time;
+import java.time.LocalTime;
+import java.util.StringTokenizer;
+
+
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+//2884번. 45분 일찍 알람설정하기.
+// 알람시각이 주어졌을때, -45분 해주기
+    	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    	
+    	// 입력할떄, 띄우기를 사이에 준다.
+    	StringTokenizer st = new StringTokenizer(br.readLine()," ");
+    	//(정수타입)시간과 분
+    	int H = Integer.parseInt(st.nextToken());
+    	int M = Integer.parseInt(st.nextToken());
+    	
+    	br.close();
+    	
+    	//입력받은 분(M)을 45 기준으로, 45보다 작으면 -1을,
+    	// 아닐경우에는, M -45를 해주자.
+    	// H가 0보다 작아질경우 H 를 23으로 수정.
+    	if(M < 45) {
+    		H--; // 1시간 감소. IF 2시 30분
+    		M = 60 - (45 - M); // 분 감소 (-1시간, 45분-30분)
+    		if(H < 0) {
+    			H = 23;
+    		}
+    		System.out.println(H+" "+M);
+    	}else {
+    		System.out.println(H+" "+(M-45));
+    	}
+
+    }
+}

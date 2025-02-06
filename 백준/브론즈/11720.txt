@@ -1,0 +1,119 @@
+package basic;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+
+
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+
+    	//11720 숫자의합. 내가낸 답(챗지피티 도움받음). 결과안나옴
+    	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    	BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+    	
+    	
+    	// N개의 숫자가 공백없이 주어지고(반복문,배열)
+    	//이 숫자들을 모두합해서 출력.
+    	
+    	int n = Integer.parseInt(br.readLine());
+    	String numbers = br.readLine();
+    	int sum = 0;
+    	
+    	//한 글자씩 처리하여 숫자로 변환 후 합산
+	// i++을 뺴먹어서 진행이 안됬었음
+    	for(int i = 0; i< n; i++) {
+
+    		// char에서 '0'을 빼면 해당숫자로 변환됨. 
+    		// 아스키값으로 계산 '0' = 48 , '5' = 53. 53-48 ....
+    		// sum 은 차례로,54321을 더하게됨
+
+    		sum += numbers.charAt(i) - '0';
+    	}
+
+	// 버퍼리더,라이터는, 스트링타입에 작동하는 메소드
+    	   bw.write(String.valueOf(sum));
+           bw.flush();
+
+           bw.close();
+           br.close();
+    }
+}
+------------------------------
+
+
+다른이의 답
+
+package basic;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+
+
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+
+    	//11720 숫자의합. 내가낸 답(챗지피티 도움받음). 결과안나옴
+    	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    	
+    	
+    	// N개의 숫자가 공백없이 주어지고(반복문,배열)
+    	//이 숫자들을 모두합해서 출력.
+    	
+    	int n = Integer.parseInt(br.readLine());
+    	int sum = 0;
+    	//문자열 배열을 선언하고, split("")을 이용해 배열한칸에 
+    	//한글자씩 저장하도록 함.
+    	String[] str = br.readLine().split("");
+    	br.close();
+    	
+    	//한 글자씩 처리하여 숫자로 변환 후 합산
+    	for(int i = 0; i< n; i++) {
+    		//string배열의 값을 int형으로 변환해 sum값 계산
+    		sum += Integer.parseInt(str[i]);
+    	}
+    	  System.out.println(sum);
+    }
+}
+
+
+------------------------------------------------------------------------
+
+
+다른이의 답 2
+
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.net.Socket;
+import java.util.Scanner;
+import java.util.StringTokenizer;
+
+public class Main {
+	
+	public static void main(String[] args) throws IOException{
+		
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		br.readLine(); // N은 쓸모없으므로 입력만.(기능없음 해당 코드에서는)
+		
+		int sum = 0;
+		
+		for(byte value:br.readLine().getBytes()) {
+			sum +=(value - '0'); // 또는 (a-48)
+		}
+		
+		System.out.println(sum);
+    	
+	}
+}
+

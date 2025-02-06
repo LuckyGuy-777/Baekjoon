@@ -1,0 +1,71 @@
+
+package basic;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.StringTokenizer;
+
+import javax.print.DocFlavor.STRING;
+
+
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+    	//2675번. 문자열반복 (챗지피티 도움받고 완성)
+    	
+    	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    	
+    	//첫째줄에 테스트케이스의 개수가 주어짐. 
+    	int T = Integer.parseInt(br.readLine());
+    	
+    	
+    	// 각 케이스의 문자 반복수.
+    	int R = 0;
+    	
+    	// 문자열 하나 입력받고
+    	String S;
+    	
+    	StringBuilder P = new StringBuilder();
+    	
+    	//테스트 케이스의 수만큼 입력을 받아야 한다.
+    	for(int i = 0; i<T; i++) {
+        	// 반복회수 입력(각 테스트는, 반복회수 R과 S가 공백으로 구분되어 주어짐)
+        	StringTokenizer st = new StringTokenizer(br.readLine()," ");
+    		//각 케이스의 글자 반복수
+    		R = Integer.parseInt(st.nextToken());
+    		//대상 문자열
+    		S = st.nextToken();
+    		char[] data = S.toCharArray();
+    		
+    		
+    		// 향상된 for문. JDK 1.5이상에서 사용됨.
+    		// data배열에 저장된 각 요소를 하나씩 순차적으로 가져와
+    		// c변수에 할당하며 반복수행
+    		for(char c : data) {
+    			for(int j = 0; j<R; j++) {
+        			P.append(c); // 각 문자를 R번 반복
+        		}
+    		}
+    		P.append("\n");
+    	}
+    	
+    	// P로 출력
+    	System.out.println(P);
+    	
+    }
+}
+
+//for(char c : data) 는 향상된for문
+//여기서 c는 지역변수로, for문 안에서만 유효함.
+//data 처럼, 대상은, 배열 또는 여러원소를 포함한 자료형이어야함.
+
+// https://java119.tistory.com/107 참조.
+// 응용자료 있음.
+
+

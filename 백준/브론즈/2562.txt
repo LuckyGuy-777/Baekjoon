@@ -1,0 +1,93 @@
+package basic;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+
+
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+// 2562번. 9개의 서로다른 자연수가 주어질때, 이들중 최대값을 찾고,
+// 그 최댓값이 몇번째 수인지를 구하는 프로그램 작성.
+// 내 실력으로 맞힘!
+    	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    	BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+    	
+    	// 첫째~ 아홉번째 줄까지 하나의 자연수가 주어짐. 배열, 버퍼리더.
+    	int[] num = new int[9];
+    	int max = 0;
+    	int num2= 0;
+    	
+    	//값 입력
+    	for(int i = 0; i<num.length; i++) {
+    		num[i] = Integer.parseInt(br.readLine());
+    	}
+    	br.close();
+    	// 첫째줄에 최대값, 둘째 줄에 최대값이 몇번
+    	for(int i = 0; i<num.length; i++) {
+    		if(max<num[i]) {
+    			// 최대값 비교후 저장.
+    			max = num[i];
+    			num2 = i+1;
+    		}
+    	}
+    	bw.write(String.valueOf(max));
+    	bw.newLine();
+    	bw.write(String.valueOf(num2));
+    	bw.flush();
+    	bw.close();
+    	
+    }
+}
+
+
+
+
+----------------------------------------------------------------------------------------------------------
+
+
+반복문 쓰지않고 있음.
+
+
+package basic;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.net.Socket;
+import java.util.Scanner;
+import java.util.StringTokenizer;
+
+public class Main {
+	
+	public static void main(String[] args) throws IOException{
+		
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		int max = 0;
+		int index = 0;
+		
+		// 반복문에, 변수입력받고, 값판별. (배열선언 안해도됨.)
+		for(int i = 0; i < 9; i++) {
+			
+			int val = Integer.parseInt(br.readLine()); // 수 입력 받고
+			
+			//값 판별.
+			if(val > max) {
+				max = val;
+				index = i + 1;
+			}
+			
+			
+		}
+		
+		System.out.println(max);
+		System.out.println(index);
+		    	
+	}
+}

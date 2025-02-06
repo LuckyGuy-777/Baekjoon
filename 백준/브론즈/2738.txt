@@ -1,0 +1,64 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.StringTokenizer;
+
+public class Main {
+	public static void main(String[] args) throws IOException{
+		
+//		N*M크기의 두 행렬 A와 B가 주어졌을 때, 두 행렬을 더하는 프로그램을 작성하시오.
+
+		
+//		각 행렬원소는 공백으로 구분. 스트링 토크나이저 사용
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		
+		
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		
+//		N,M <=100, 숫자는 100보다 작거나같은 정수.
+		int N = Integer.parseInt(st.nextToken());
+		int M = Integer.parseInt(st.nextToken());
+		
+//		첫째줄엔 행렬크기 N,M. 둘째줄부터 N개의 줄에 행렬 A의 원소 M개가 차례대로 주어짐.
+//		다음줄엔 B의 원소 M개가 차례로 주어짐.	
+		int[][] arr1= new int[N][M];
+		int[][] arr2= new int[N][M];
+		
+		// 첫째 배열
+		for(int i = 0; i<N; i++) {
+			st = new StringTokenizer(br.readLine());
+			for(int j = 0; j<M; j++) {
+				arr1[i][j]=Integer.parseInt(st.nextToken());
+			}
+		}
+		
+		// 둘째 배열
+		for(int i = 0; i<N; i++) {
+			st = new StringTokenizer(br.readLine());
+			for(int j = 0; j<M; j++) {
+				arr2[i][j]=Integer.parseInt(st.nextToken());
+			}
+		}
+		
+		// 두배열 합해서 출력
+		for(int i = 0; i<N; i++) {
+			for(int j = 0; j<M; j++) {
+				bw.write((arr1[i][j] + arr2[i][j])+" ");
+			}
+			bw.write("\n");
+		}
+		
+		bw.flush();
+		
+		bw.close();
+		
+		
+		
+		
+		
+		
+	}
+}
